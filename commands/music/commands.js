@@ -11,7 +11,7 @@ module.exports = {
   	.setTitle('Komendy')
   	.setURL('https://discord.js.org/')
   	.setAuthor('Komendy', 'https://imgur.com/pmx6yfY.png',      'https://discord.js.org')
-  	.setDescription('Lista komend')
+  	.setDescription('Hey tu jest moja lista komend')
 	  .setFooter('Autorem bota jest blaszkaaa#8802', 'https://imgur.com/pmx6yfY.png');
 
       message.channel.send(help)
