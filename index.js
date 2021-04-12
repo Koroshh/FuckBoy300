@@ -11,7 +11,7 @@ client.aliases = new discord.Collection();
 client.queue = new Map();
 
 const Categories = ["music"]; 
-Categories.forEach(async function(Category) { //
+Categories.forEach(async function(Category) { 
     fs.readdir(`./commands/${Category}`, async function(error, files) {
       if (error) throw new Error(`Error In Command - Command Handler\n${error}`);
       files.forEach(async function(file) {
