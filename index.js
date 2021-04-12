@@ -13,7 +13,7 @@ client.queue = new Map();
 
 
 
-const Categories = ["music"]; //Commands => Category => Command
+const Categories = ["music"]; 
 Categories.forEach(async function(Category) { //
     fs.readdir(`./commands/${Category}`, async function(error, files) {
       if (error) throw new Error(`Error In Command - Command Handler\n${error}`);
