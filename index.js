@@ -54,4 +54,4 @@ client.on("message", async message => {
 
 
 
-client.login('ODMxMDgwMTk5NzkyNjIzNjM2.YHQBwA.NyMNhEKzKspROPZtpsyC_nAk7Ks')
+client.login(process.env.TOKEN).catch(err => console.log(`Invalid Token Provided!`));
