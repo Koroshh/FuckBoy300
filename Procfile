@@ -1,1 +1,1 @@
-worker: node src/index.js -p 8080
+worker:node src/index.js 
