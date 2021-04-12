@@ -1,1 +1,1 @@
-worker: node src/index.js -p $PORT
+worker: node src/index.js -p 8080
