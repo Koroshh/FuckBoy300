@@ -6,7 +6,10 @@ module.exports = {
   description: "stop a song",
   run: async (client, message, args) => {
 
-    
+    if (message.content === 'stop') {
+      message.react('😄');
+    }
+
     const embed1 = new Discord.MessageEmbed()
     .setDescription("Musisz być na kanale głosowym")
     .setColor("RED")
@@ -21,11 +24,6 @@ module.exports = {
 		serverQueue.songs = [];
 		serverQueue.connection.dispatcher.end('');
 
-const stopped = new Discord.MessageEmbed()
-		.setColor('#0099ff')
-    .setDescription("Muzyka została zatrzymana!")
-
-message.channel.send(stopped)
 
   }
 }
