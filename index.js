@@ -13,8 +13,8 @@ client.queue = new Map();
 
 client.on("ready", () =>{
   console.log(`Logged in as Alts!`);
-  client.user.setActivity('discord.js', { type: 'WATCHING' })
-  .then(presence => console.log(`Activity set to `))
+  client.user.setActivity('$help', { type: 'COMPETING' })
+  .then(presence => console.log(`Status ✔ `))
   .catch(console.error);
   });
 
