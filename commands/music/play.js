@@ -37,7 +37,6 @@ module.exports = {
 	.addField("🎶 ▸ Dodano do kolejki", `[${song.title}](${song.url})`)	
 	if (serverQueue) {
 			serverQueue.songs.push(song);
-			console.log(serverQueue.songs);
 			return message.channel.send(embed4);
 		}
 
@@ -68,8 +67,8 @@ module.exports = {
 				.on('error', error => console.error(error));
 			dispatcher.setVolumeLogarithmic(queue.volume / 5);
       const embed5 = new Discord.MessageEmbed()
-      .setDescription(`🎶 **${song.title}**`)
-      .setColor("GREEN")
+	  	.addField("🎶 ▸ Aktualnie leci", `[${song.title}](${song.url})`)	
+		.setColor('#0099ff')
 			queue.textChannel.send(embed5);
 		};
 
