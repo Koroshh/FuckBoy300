@@ -7,6 +7,9 @@ module.exports = {
   description: "skip the song!",
   run: async (client, message, args) => {
 
+    if (message.content === '$skip') {
+      message.react('⏭');
+    }
 
 	const { channel } = message.member.voice;
   const embed1 = new Discord.MessageEmbed()
