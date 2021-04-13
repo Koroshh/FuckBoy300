@@ -6,7 +6,7 @@ module.exports = {
   description: "stop a song",
   run: async (client, message, args) => {
 
-    if (message.content === 'stop') {
+    if (message.content === '$stop') {
       message.react('😄');
     }
 
