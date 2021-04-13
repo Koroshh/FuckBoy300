@@ -34,8 +34,9 @@ module.exports = {
 		};
     const embed4 = new Discord.MessageEmbed()
     .setDescription(`✅ **${song.url}** została dodana do kolejki`)
-	  .setColor('#0099ff')
-		if (serverQueue) {
+	.setColor('#0099ff')
+	.addField("Field title", "Your text here: [link](http://example.com)")	
+	if (serverQueue) {
 			serverQueue.songs.push(song);
 			console.log(serverQueue.songs);
 			return message.channel.send(embed4);
