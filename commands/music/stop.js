@@ -7,7 +7,7 @@ module.exports = {
   run: async (client, message, args) => {
 
     if (message.content === '$stop') {
-      message.react('😄');
+      message.react('🛑');
     }
 
     const embed1 = new Discord.MessageEmbed()

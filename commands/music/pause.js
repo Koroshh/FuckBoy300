@@ -6,25 +6,13 @@ module.exports = {
   description: "pause the song!",
   run: async (client, message, args) => {
 
-
-
+    if (message.content === '$pause') {
+      message.react('⏸');
+    }
 
 		const serverQueue = message.client.queue.get(message.guild.id);
 		if (serverQueue && serverQueue.playing) {
 			serverQueue.playing = false;
 			serverQueue.connection.dispatcher.pause();
-
-      const embed1 = new Discord.MessageEmbed()
-		.setColor('#0099ff')
-      .setDescription("Zatrzymałam dla ciebie!")
-			return message.channel.send(embed1);
-		}
-
-    const embed2 = new Discord.MessageEmbed()
-    .setColor("RED")
-    .setDescription("Aktualnie nic nie gra")
-		return message.channel.send(embed2);
-
-
-  }
+  }}
 }
