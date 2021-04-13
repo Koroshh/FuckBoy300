@@ -15,8 +15,8 @@ module.exports = {
 			serverQueue.connection.dispatcher.pause();
 
       const embed1 = new Discord.MessageEmbed()
-      .setColor("GREEN")
-      .setDescription("⏸ Zatrzymałam dla ciebie!")
+		.setColor('#0099ff')
+      .setDescription("Zatrzymałam dla ciebie!")
 			return message.channel.send(embed1);
 		}
 

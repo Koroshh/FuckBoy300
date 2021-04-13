@@ -8,7 +8,7 @@ module.exports = {
 
     
     const embed1 = new Discord.MessageEmbed()
-    .setDescription("Sorki ale musisz być na kanale głosowym")
+    .setDescription("Musisz być na kanale głosowym")
     .setColor("RED")
 
 		const { channel } = message.member.voice;
@@ -22,8 +22,8 @@ module.exports = {
 		serverQueue.connection.dispatcher.end('');
 
 const stopped = new Discord.MessageEmbed()
-.setColor("GREEN")
-.setDescription("Muzyka została zatrzymana!")
+		.setColor('#0099ff')
+    .setDescription("Muzyka została zatrzymana!")
 
 message.channel.send(stopped)
 

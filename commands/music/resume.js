@@ -8,8 +8,8 @@ module.exports = {
 
 
     const embed1 = new Discord.MessageEmbed()
-    .setColor("GREEN")
-    .setDescription("▶ Zatrzymałam dla ciebie!")
+		.setColor('#0099ff')
+    .setDescription("Zatrzymałam dla ciebie!")
 
 		const serverQueue = message.client.queue.get(message.guild.id);
 		if (serverQueue && !serverQueue.playing) {

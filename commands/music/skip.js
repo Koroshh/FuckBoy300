@@ -10,7 +10,7 @@ module.exports = {
 
 	const { channel } = message.member.voice;
   const embed1 = new Discord.MessageEmbed()
-  .setDescription("Sorki ale musisz być na kanale głosowym")
+  .setDescription("Musisz być na kanle głosowym")
   .setColor("RED")
 		if (!channel) return message.channel.send(embed1);
 		const serverQueue = message.client.queue.get(message.guild.id);
