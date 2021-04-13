@@ -24,7 +24,7 @@ module.exports = {
     .setDescription("Czy to na pewno jest link do youtube hmm?")
     .setColor("RED")
 
-    if(message.content.includes("https://youtube.com/") || message.content.includes(" https://www.youtube.com/") || message.content.includes("https://youtu.be.com/")) {
+    if(message.content.includes("https://youtube.com/") || message.content.includes(" https://www.youtube.com/") || message.content.includes("https://youtu.be/")) {
 		const serverQueue = message.client.queue.get(message.guild.id);
 		const songInfo = await ytdl.getInfo(args[0])
 		const song = {
