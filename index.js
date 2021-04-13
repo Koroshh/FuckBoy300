@@ -13,14 +13,11 @@ client.queue = new Map();
 
 client.on("ready", () =>{
   console.log(`Logged in as Alts!`);
-  client.user.setPresence({
-      status: "online",  // You can show online, idle... Do not disturb is dnd
-      game: {
-          name: "!help",  // The message shown
-          type: "PLAYING" // PLAYING, WATCHING, LISTENING, STREAMING,
-      }
+  client.user.setActivity('discord.js', { type: 'WATCHING' })
+  .then(presence => console.log(`Activity set to `))
+  .catch(console.error);
   });
-});
+
 const Categories = ["music"]; 
 Categories.forEach(async function(Category) { 
     fs.readdir(`./commands/${Category}`, async function(error, files) {
