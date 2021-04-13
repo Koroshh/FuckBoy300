@@ -12,8 +12,8 @@ client.queue = new Map();
 
 
 client.on("ready", () =>{
-  console.log(`Logged in as Alts!`);
-  client.user.setActivity('$help', { type: 'COMPETING' })
+  console.log(`Zalogowano do Alts! ❤`);
+  client.user.setActivity('$help', { type: 'PLAYING' })
   .then(presence => console.log(`Status ✔ `))
   .catch(console.error);
   });
