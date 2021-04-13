@@ -33,8 +33,8 @@ module.exports = {
 			url: songInfo.videoDetails.video_url
 		};
     const embed4 = new Discord.MessageEmbed()
-    .setDescription(`✅ **${song.title}** została dodana do kolejki`)
-    .setColor("GREEN")
+    .setDescription(`✅ **${song.url}** została dodana do kolejki`)
+	  .setColor('#0099ff')
 		if (serverQueue) {
 			serverQueue.songs.push(song);
 			console.log(serverQueue.songs);
