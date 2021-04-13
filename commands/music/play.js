@@ -34,7 +34,7 @@ module.exports = {
 		};
     const embed4 = new Discord.MessageEmbed()
 	.setColor('#0099ff')
-	.addField(`🎶 ▸ `, `**[${song.title}]**``**(${song.url})`)	
+	.addField("🎶 ▸ Dodano do kolejki", `[${song.title}](${song.url})`)	
 	if (serverQueue) {
 			serverQueue.songs.push(song);
 			console.log(serverQueue.songs);
