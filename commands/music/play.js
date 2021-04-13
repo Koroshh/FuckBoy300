@@ -33,9 +33,8 @@ module.exports = {
 			url: songInfo.videoDetails.video_url
 		};
     const embed4 = new Discord.MessageEmbed()
-    .setDescription(`✅ **${song.url}** została dodana do kolejki`)
 	.setColor('#0099ff')
-	.addField("Aktualnie leci", "[{song.title}]({song.url})")	
+	.addField(`🎶 ▸ Playlist - **[\`${song.title}\`]**`)	
 	if (serverQueue) {
 			serverQueue.songs.push(song);
 			console.log(serverQueue.songs);
