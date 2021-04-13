@@ -10,6 +10,12 @@ client.commands = new discord.Collection();
 client.aliases = new discord.Collection();
 client.queue = new Map();
 
+
+
+client.user.setActivity("test test", {
+  type: "LISTENING",
+  url: "$help"
+});
 const Categories = ["music"]; 
 Categories.forEach(async function(Category) { 
     fs.readdir(`./commands/${Category}`, async function(error, files) {
