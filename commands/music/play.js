@@ -11,7 +11,7 @@ module.exports = {
   run: async (client, message, args) => {
     
     const embed1 = new Discord.MessageEmbed()
-    .setDescription("Sorki ale musisz być na kanale głosowym")
+    .setDescription("Musisz być na kanale głosowym")
     .setColor("RED")
 		const { channel } = message.member.voice;
 		if (!channel) return message.channel.send(embed1);
@@ -21,7 +21,7 @@ module.exports = {
     .setColor("RED")
 		if (!permissions.has('CONNECT'))return message.channel.send(embed2);
     const embed7 = new Discord.MessageEmbed()
-    .setDescription("Czy to na pewno jest link do youtube hmm?")
+    .setDescription("Czy to na pewno jest link do youtube?")
     .setColor("RED")
 
     if(message.content.includes("https://youtube.com/") || message.content.includes(" https://www.youtube.com/") || message.content.includes("https://youtu.be/")) {
