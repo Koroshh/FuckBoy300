@@ -9,6 +9,7 @@ module.exports = {
     const help = new Discord.MessageEmbed()
 	  .setColor('#0099ff')
   	.setTitle('Alts')
+    .hexColor('RED')
   	.setAuthor('Pomoc', 'https://imgur.com/pmx6yfY.png')
   	.addField('Alts to najłatwiejszy sposób na odtwarzanie muzyki na serwerze Discord. Jak narazie współpracuje z YouTube.' ,)
     .addField('Aby rozpocząć, dołącz do kanału głosowego i -play piosenkę. Możesz używać nazw utworów, linków do filmów i linków do playlist.', )
