@@ -1,94 +1,50 @@
-const { Util } = require('discord.js');
-const ytdl = require('ytdl-core');
+const config = require('./config.json')
+const Discord = require('discord.js')
+const Client = new Discord.Client()
+const db = require('quick.db')
+const fs = require('fs')
+Client.commands = new Discord.Collection();
+Client.aliases = new Discord.Collection();
+const DisTube = require('distube')
 
-const Discord = require('discord.js');
 
-module.exports = {
-  name: "play",
-  aliases: ["pl"],
-  usage: "play <song>",
-  description: "play a song",
-  run: async (client, message, args) => {
-    
-    const embed1 = new Discord.MessageEmbed()
-    .setDescription("Musisz być na kanale głosowym")
-    .setColor("RED")
-		const { channel } = message.member.voice;
-		if (!channel) return message.channel.send(embed1);
-		const permissions = channel.permissionsFor(message.client.user);
-    const embed2 = new Discord.MessageEmbed()
-    .setDescription("Nie mogę się połączyć, sprawdź moje uprawnienia !")
-    .setColor("RED")
-		if (!permissions.has('CONNECT'))return message.channel.send(embed2);
-    const embed7 = new Discord.MessageEmbed()
-    .setDescription("Czy to na pewno jest link do youtube?")
-    .setColor("RED")
 
-    if(message.content.includes("https://youtube.com/") || message.content.includes(" https://www.youtube.com/") || message.content.includes("https://youtu.be/")) {
-		const serverQueue = message.client.queue.get(message.guild.id);
-		const songInfo = await ytdl.getInfo(args[0])
-		const song = {
-			id: songInfo.videoDetails.video_id,
-			title: Util.escapeMarkdown(songInfo.videoDetails.title),
-			url: songInfo.videoDetails.video_url
-		};
-    const embed4 = new Discord.MessageEmbed()
-	.setColor('#0099ff')
-	.addField("🎶 ▸ Dodano do kolejki", `[${song.title}](${song.url})`)	
-	if (serverQueue) {
-			serverQueue.songs.push(song);
-			return message.channel.send(embed4);
-		}
 
-		const queueConstruct = {
-			textChannel: message.channel,
-			voiceChannel: channel,
-			connection: null,
-			songs: [],
-			volume: 10,
-			playing: true
-		};
-		message.client.queue.set(message.guild.id, queueConstruct);
-		queueConstruct.songs.push(song);
+Client.distube = new DisTube(Client, { searchSongs: false, emitNewSongOnly: false });
 
-		const play = async song => {
-			const queue = message.client.queue.get(message.guild.id);
-			if (!song) {
-				queue.voiceChannel.leave();
-				message.client.queue.delete(message.guild.id);
-				return;
-			}
+Client.distube
 
-			const dispatcher = queue.connection.play(ytdl(song.url))
-				.on('finish', () => {
-					queue.songs.shift();
-					play(queue.songs[0]);
-				})
-				.on('error', error => console.error(error));
-			dispatcher.setVolumeLogarithmic(queue.volume / 5);
-      const embed5 = new Discord.MessageEmbed()
-	  	.addField("🎶 ▸ Aktualnie leci", `[${song.title}](${song.url})`)	
-		.setColor('#0099ff')
-			queue.textChannel.send(embed5);
-		};
+.on("playSong", (message, queue, song) => {
+    let playingEmbed = new Discord.MessageEmbed()
+    .setColor("#FFFF00")
+    .setTitle(`🎵 Now Playing 🎵`)
+    .setDescription(`[**${song.name} - ${song.formattedDuration}**](${song.url})`)
+    .setFooter(`Requested by ${song.user.tag}`)
+    message.channel.send(playingEmbed)
+})
+.on("addSong", (message, queue, song) => {
+    let queueEmbed = new Discord.MessageEmbed()
+    .setColor("#FFFF00")
+    .setTitle(`✅ Added to the Queue ✅`)
+    .setDescription(`[**${song.name} - ${song.formattedDuration}**](${song.url})`)
+    .setFooter(`Requested by ${song.user.tag}`)
+    message.channel.send(queueEmbed)
+})
+.on("playList", (message, queue, playlist, song) => {
 
-		try {
-			const connection = await channel.join();
-			queueConstruct.connection = connection;
-			play(queueConstruct.songs[0]);
-		} catch (error) {
-			console.error(`: ${error}`);
-			message.client.queue.delete(message.guild.id);
-			await channel.leave();
-      const embed6 = new Discord.MessageEmbed()
-      .setDescription(` ${error}`)
-      .setColor("RED")
-			return message.channel.send(embed6);
-		}
-
-    } else {
-      message.channel.send(embed7)
-    };
-
-	}
-};
+    message.channel.send(`Play \`${playlist.name}\` playlist (${playlist.songs.length} songs).\nRequested by: ${song.user}\nNow playing \`${song.name}\` - \`${song.formattedDuration}\``)
+})
+.on("addList", (message, queue, playlist) => message.channel.send(
+    `Added \`${playlist.name}\` playlist (${playlist.songs.length} songs) to queue`
+))
+// DisTubeOptions.searchSongs = true
+.on("searchResult", (message, result) => {
+    let i = 0;
+    message.channel.send(`**Choose an option from below**\n${result.map(song => `**${++i}**. ${song.name} - \`${song.formattedDuration}\``).join("\n")}\n*Enter anything else or wait 60 seconds to cancel*`);
+})
+// DisTubeOptions.searchSongs = true
+.on("searchCancel", (message) => message.channel.send(`**Searching canceled!**`))
+.on("error", (message, e) => {
+    console.error(e)
+    message.channel.send("An error encountered: " + e);
+});
