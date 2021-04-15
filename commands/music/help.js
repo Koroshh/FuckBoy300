@@ -10,7 +10,7 @@ module.exports = {
 	  .setColor('#0099ff')
   	.setTitle('Pomoc')
   	.setAuthor('Alts', 'https://imgur.com/rZTaCPx.png')
-    .setDescription('Alts to najłatwiejszy sposób na odtwarzanie muzyki na serwerze Discord. Jak narazie współpracuje z YouTube. Aby rozpocząć, dołącz do kanału głosowego i $play <link>. Możesz używać inków do piosenek. Chcesz sprawdzić jakie mam komendy? Polecam $commends 😏' )
+    .setDescription('Alts to najłatwiejszy sposób na odtwarzanie muzyki na serwerze Discord. Jak narazie współpracuje z YouTube. Aby rozpocząć, dołącz do kanału głosowego i $play <link>. Możesz używać inków do piosenek. Chcesz sprawdzić jakie mam komendy? Polecam $commands 😏' )
 	  .setFooter('Autorem bota jest blaszkaaa#8802', 'https://imgur.com/rZTaCPx.png');
 
     message.channel.send(help)
