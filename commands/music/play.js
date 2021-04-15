@@ -16,7 +16,7 @@ module.exports = {
         //Checking for the voicechannel and permissions (you can add more permissions if you like).
        
         //This is our server queue. We are getting this server queue from the global queue.
-        const server_queue = queue.get(message.guild);
+        const server_queue = queue.get(message.guild.id);
 
         //If the user has used the play command
         if (cmd === 'play'){
@@ -53,7 +53,7 @@ module.exports = {
                 }
                 
                 //Add our key and value pair into the global queue. We then use this to get our server queue.
-                queue.set(message.guild, queue_constructor);
+                queue.set(message.guild.id, queue_constructor);
                 queue_constructor.songs.push(song);
     
                 //Establish a connection and play the song with the vide_player function.
@@ -62,7 +62,7 @@ module.exports = {
                     queue_constructor.connection = connection;
                     video_player(message.guild, queue_constructor.songs[0]);
                 } catch (err) {
-                    queue.delete(message.guild);
+                    queue.delete(message.guild.id);
                     message.channel.send('There was an error connecting!');
                     throw err;
                 }
