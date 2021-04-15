@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const ytdl = require('ytdl-core');
 const ytSearch = require('yt-search');
+const server_queue = queue.get(message.guild.id);
 
 //Global queue for your bot. Every server will have a key and value pair in this map. { guild.id, queue_constructor{} }
 const queue = new Map();
@@ -16,7 +17,6 @@ module.exports = {
         //Checking for the voicechannel and permissions (you can add more permissions if you like).
        
         //This is our server queue. We are getting this server queue from the global queue.
-        const server_queue = queue.get(message.guild.id).id;
 
         //If the user has used the play command
         if (cmd === 'play'){
