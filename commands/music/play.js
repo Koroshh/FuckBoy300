@@ -22,7 +22,6 @@ module.exports = {
             if (!args.length) return message.channel.send('You need to send the second argument!');
             let song = {};
 			const server_queue = queue.get(message.guild.id);
-
             //If the first argument is a link. Set the song object to have two keys. Title and URl.
             if (ytdl.validateURL(args[0])) {
                 const song_info = await ytdl.getInfo(args[0]);
