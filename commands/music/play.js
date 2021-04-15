@@ -7,7 +7,12 @@ Client.commands = new Discord.Collection();
 Client.aliases = new Discord.Collection();
 const DisTube = require('distube')
 
-
+module.exports = {
+	name: "pause",
+	aliases: ["pa"],
+	usage: "pause",
+	description: "pause the song!",
+	run: async (client, message, args) => {
 
 
 Client.distube = new DisTube(Client, { searchSongs: false, emitNewSongOnly: false });
@@ -47,4 +52,4 @@ Client.distube
 .on("error", (message, e) => {
     console.error(e)
     message.channel.send("An error encountered: " + e);
-});
+})}};
