@@ -18,7 +18,7 @@ module.exports = {
         //This is our server queue. We are getting this server queue from the global queue.
 
         //If the user has used the play command
-        if (cmd === 'play'){
+        if (message.content === 'play'){
             if (!args.length) return message.channel.send('You need to send the second argument!');
             let song = {};
 			const server_queue = queue.get(message.guild.id);
