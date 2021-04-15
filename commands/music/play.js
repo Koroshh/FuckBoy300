@@ -43,7 +43,7 @@ module.exports = {
             }
 
             //If the server queue does not exist (which doesn't for the first video queued) then create a constructor to be added to our global queue.
-            if (!server_queue){
+            if (!queue.get(message.guild.id)){
 
                 const queue_constructor = {
                     voice_channel: voice_channel,
@@ -72,8 +72,8 @@ module.exports = {
             }
         }
 
-        else if(cmd === 'skip') skip_song(message, server_queue);
-        else if(cmd === 'stop') stop_song(message, server_queue);
+        else if(cmd === 'skip') skip_song(message, queue.get(message.guild.id));
+        else if(cmd === 'stop') stop_song(message, queue.get(message.guild.id));
     }
     
 }
