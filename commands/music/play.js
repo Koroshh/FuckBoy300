@@ -1,7 +1,6 @@
 const Discord = require('discord.js');
 const ytdl = require('ytdl-core');
 const ytSearch = require('yt-search');
-const server_queue = queue.get(message.guild.id);
 
 //Global queue for your bot. Every server will have a key and value pair in this map. { guild.id, queue_constructor{} }
 const queue = new Map();
@@ -13,7 +12,7 @@ module.exports = {
     description: 'Advanced music bot',
     run: async(message,args, cmd, _client, client, Discord) =>{
 
-		
+
         //Checking for the voicechannel and permissions (you can add more permissions if you like).
        
         //This is our server queue. We are getting this server queue from the global queue.
@@ -22,6 +21,7 @@ module.exports = {
         if (cmd === 'play'){
             if (!args.length) return message.channel.send('You need to send the second argument!');
             let song = {};
+			const server_queue = queue.get(message.guild.id);
 
             //If the first argument is a link. Set the song object to have two keys. Title and URl.
             if (ytdl.validateURL(args[0])) {
