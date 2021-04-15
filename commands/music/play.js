@@ -16,7 +16,7 @@ module.exports = {
         //Checking for the voicechannel and permissions (you can add more permissions if you like).
        
         //This is our server queue. We are getting this server queue from the global queue.
-        const server_queue = queue.get(message.guild.id);
+        const server_queue = queue.get(message.guild.id).id;
 
         //If the user has used the play command
         if (cmd === 'play'){
