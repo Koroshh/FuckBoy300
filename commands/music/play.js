@@ -1,9 +1,8 @@
-const { Util } = require('discord.js');
+const Discord = require('discord.js');
 const ytdl = require('ytdl-core');
 const yts = require( 'yt-search' )
 
-
-const Discord = require('discord.js');
+const queue = new Map();
 
 module.exports = {
   name: "play",
