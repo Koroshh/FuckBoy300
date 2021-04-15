@@ -1,5 +1,7 @@
 const { Util } = require('discord.js');
 const ytdl = require('ytdl-core');
+const yts = require( 'yt-search' )
+
 
 const Discord = require('discord.js');
 
