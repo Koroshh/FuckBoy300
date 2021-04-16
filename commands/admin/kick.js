@@ -1,21 +1,43 @@
-const Discord = require("discord.js")
+const {
+  Permissions: { FLAGS },
+} = require("discord.js")
+
 module.exports = {
   name: "kick",
-  aliases: ["k"],
-  usage: "kick",
-  description: "kick user",
-  run: async (client, message, member, msg, args) => {
-    
-    if (msg.member.hasPermission("KICK_MEMBERS")) {
-      if (msg.members.mentions.first()) {
-          try {
-              msg.members.mentions.first().kick();
-          } catch {
-              msg.reply("I do not have permissions to kick " + msg.members.mentions.first());
-          }
-      } else {
-          msg.reply("You do not have permissions to kick " + msg.members.mentions.first());
-      }
-  }
+  description: "Kick user.",
+  args: true,
+  usage: "<user> [reason]",
+  botPermissions: [FLAGS.KICK_MEMBERS],
+  userPermissions: [FLAGS.KICK_MEMBERS],
 
-}};
+  run(msg, args) {
+    const { channel, guild, mentions, author } = msg
+
+    const userArg = args[0]
+    const reasonArg = [...args].slice(1).join(" ")
+
+    const userToKick = mentions.users.first()
+
+    if (!userToKick) {
+      return msg.reply("you must provide a valid user to kick.")
+    }
+
+    if (userToKick.id === author.id) {
+      return msg.reply("you can't kick yourself!")
+    }
+
+    const memberToKick = guild.members.cache.get(userToKick.id)
+
+    if (!memberToKick.kickable) {
+      return channel.send("I need more permissions to execute this command.")
+    }
+
+    memberToKick.kick(reasonArg).then((res) => {
+      channel.send(
+        `User ${res.displayName} has been kicked.\n${
+          reasonArg ? `Reason: ${reasonArg}` : ""
+        }`,
+      )
+    })
+  },
+}
