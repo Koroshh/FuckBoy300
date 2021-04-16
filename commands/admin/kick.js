@@ -1,3 +1,4 @@
+const Discord = require('discord.js')
 const {
   Permissions: { FLAGS },
 } = require("discord.js")
@@ -10,7 +11,7 @@ module.exports = {
   botPermissions: [FLAGS.KICK_MEMBERS],
   userPermissions: [FLAGS.KICK_MEMBERS],
 
-  run(msg, args) {
+  run: async (msg, args) => {
     const { channel, guild, mentions, author } = msg
 
     const userArg = args[0]
