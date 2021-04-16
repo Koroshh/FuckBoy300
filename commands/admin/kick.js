@@ -4,7 +4,7 @@ module.exports = {
   aliases: ["k"],
   usage: "kick",
   description: "kick user",
-  run: async (client, message, member, args) => {
+  run: async (client, message, member, msg, args) => {
     
     if (msg.member.hasPermission("KICK_MEMBERS")) {
       if (msg.members.mentions.first()) {
