@@ -18,7 +18,7 @@ client.on("ready", () =>{
   .catch(console.error);
   });
 
-const Categories = ["music"]; 
+const Categories = ["music" || "admin"]; 
 Categories.forEach(async function(Category) { 
     fs.readdir(`./commands/${Category}`, async function(error, files) {
       if (error) throw new Error(`Error In Command - Command Handler\n${error}`);
