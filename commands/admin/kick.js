@@ -4,7 +4,7 @@ module.exports = {
   aliases: ["k"],
   usage: "kick",
   description: "kick user",
-  run: async (client, message, args) => {
+  run: async (client, message, member, args) => {
     if (message.content == '$kick'){
       if (member.hasPermission('KICK_MEMBERS')) {
         console.log('This member can kick');
