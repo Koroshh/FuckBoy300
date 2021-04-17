@@ -19,9 +19,6 @@ module.exports = {
     if(message.content == '$leaks'){
       message.channel.send(wylosowane_konto);
       message.react('😎');
-    };
-
-    if (cmd === `$dm`) {
       let dUser =
        message.guild.member(message.mentions.users.first()) ||
        message.guild.members.get(args[0]);
@@ -36,8 +33,8 @@ module.exports = {
       message.author.send(
        `${message.author} You have sent your message to ${dUser}`
       );
-     }
+    };
 
-
+    
 
   }};
