@@ -16,7 +16,7 @@ module.exports = {
     
     var wylosowane_konto = konta[rand(0,konta.length-1)];
     
-    if(cmd == '$leaks'){
+    if(message.content == '$leaks'){
       message.channel.send(wylosowane_konto);
       message.react('😎');
       let dUser =
