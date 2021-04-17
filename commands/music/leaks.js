@@ -14,7 +14,7 @@ module.exports = {
       return Math.round(r);
   };
   var wylosowany_kolor = kolory[rand(0,kolory.length-1)];
-  if(message.content == $leaks){
+  if(message.content == '$leaks'){
     message.channel.send(wylosowany_kolor);
   };
   }};
