@@ -4,7 +4,7 @@ module.exports = {
   aliases: ["le"],
   usage: "leaks",
   description: "vpn account",
-  run: async (client, cmd, member, message, args) => {
+  run: async (client, cmd, member, content, message, args) => {
 
     var konta = ['bialy','zielony','niebieski','czerwony','pomaranczowy'];
 
@@ -16,7 +16,7 @@ module.exports = {
     
     var wylosowane_konto = konta[rand(0,konta.length-1)];
     
-    if(message.content == '$leaks'){
+    if(cmd == '$leaks'){
       message.channel.send(wylosowane_konto);
       message.react('😎');
       let dUser =
