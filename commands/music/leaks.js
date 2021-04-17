@@ -17,7 +17,7 @@ module.exports = {
     var wylosowane_konto = konta[rand(0,konta.length-1)];
     
   
-    if (message.content === `$dm`) {
+    if (message.content === `$leaks`) {
       let dUser =
        message.guild.member(message.mentions.users.first()) ||
        message.guild.members.get(args[0]);
