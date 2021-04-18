@@ -1,4 +1,5 @@
-const Discord = require('discord.js')
+const {Client, RichEmbed} = require('discord.js');
+const bot = new Client();
 module.exports = {
   name: "leaks",
   aliases: ["le"],
@@ -17,7 +18,7 @@ module.exports = {
     var wylosowane_konto = konta[rand(0,konta.length-1)];
     
     PREFIX = '$';
-  
+    
     bot.on('message', message => {
       let args = message.content.substring(PREFIX.length).split(" ");
       switch (args[0]) { 
