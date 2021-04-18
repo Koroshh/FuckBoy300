@@ -17,23 +17,15 @@ module.exports = {
     
     var wylosowane_konto = konta[rand(0,konta.length-1)];
     
-    PREFIX = '$';
     
-    bot.on('message', message => {
-      let args = message.content.substring(PREFIX.length).split(" ");
-      switch (args[0]) { 
-          case 'leaks':
-              const Embed = new RichEmbed()
-              .setTitle("Helper Embed")
-              .setColor(0xFF0000)
-              .setDescription("Make sure to use the !help to get access to the commands");
-              message.author.send(Embed);
-          break;
-      }
-   
-   
-  });
-
-
+    if (message.content === '$pause') {
+    const accounts = new Discord.MessageEmbed()
+	    .setColor('#0099ff')
+  	  .setTitle('Oto twoje konto nordvpn')
+  	  .setAuthor('Alts', 'https://imgur.com/rZTaCPx.png')
+      .setDescription(wylosowane_konto)
+	    .setFooter('Autorem bota jest blaszkaaa#8802', 'https://imgur.com/rZTaCPx.png');
+      message.author.send(accounts)
+    }
 
   }};
