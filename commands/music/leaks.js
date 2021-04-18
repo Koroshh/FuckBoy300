@@ -6,7 +6,13 @@ module.exports = {
   description: "account nordvpn",
   run: async (client, message, args) => {
 
-    var konta = ['bialy','zielony','niebieski','czerwony','pomaranczowy'];
+    var konta = [
+    'bialy',
+    'zielony',
+    'niebieski',
+    'czerwony',
+    'pomaranczowy',
+    ];
 
     function rand(range_from,range_to){
 	    var r = Math.random();
