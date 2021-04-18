@@ -18,7 +18,7 @@ module.exports = {
     var wylosowane_konto = konta[rand(0,konta.length-1)];
     
     
-    if (message.content === '$pause') {
+    if (message.content === '$leaks') {
     const accounts = new Discord.MessageEmbed()
 	    .setColor('#0099ff')
   	  .setTitle('Oto twoje konto nordvpn')
