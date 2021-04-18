@@ -1,10 +1,10 @@
 const Discord = require('discord.js')
 module.exports = {
-  name: "leaks",
-  aliases: ["le"],
-  usage: "leaks",
-  description: "vpn account",
-  run: async (client, cmd, member, message, args) => {
+  name: "pause",
+  aliases: ["pa"],
+  usage: "pause",
+  description: "pause the song!",
+  run: async (client, message, args) => {
 
     var konta = ['bialy','zielony','niebieski','czerwony','pomaranczowy'];
 
@@ -16,15 +16,17 @@ module.exports = {
     
     var wylosowane_konto = konta[rand(0,konta.length-1)];
     
-    
+    const embed = new Discord.MessageEmbed()
+	  .setColor('#0099ff')
+  	.setTitle('Twoje konto nordvpn')
+  	.setAuthor('Alts', 'https://imgur.com/rZTaCPx.png')
+    .setDescription(wylosowane_konto)
+	  .setFooter('Autorem bota jest blaszkaaa#8802', 'https://imgur.com/rZTaCPx.png');
+
     if (message.content === '$leaks') {
-    const accounts = new Discord.MessageEmbed()
-	    .setColor('#0099ff')
-  	  .setTitle('Oto twoje konto nordvpn')
-  	  .setAuthor('Alts', 'https://imgur.com/rZTaCPx.png')
-      .setDescription(wylosowane_konto)
-	    .setFooter('Autorem bota jest blaszkaaa#8802', 'https://imgur.com/rZTaCPx.png');
-      message.author.send(accounts)
+      message.author.send(embed);
     }
 
-  }};
+		
+  }
+}
