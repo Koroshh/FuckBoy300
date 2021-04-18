@@ -20,6 +20,13 @@ module.exports = {
     'kl.20@hotmail.com:smile123 | Expiry = 2022-02-26 |',
     'alisonangst@icloud.com:Den22Dzksk | Expiry = 2022-02-11 |',
     'raiders.rock36@hotmail.com:Cougar#23 | Expiry = 2022-01-18 |',
+    'rayquons740@outlook.com:shadow740 | Expiry = 2022-01-11 |',
+    'lindsay.scott95@gmail.com:122795linz | Expiry = 2022-01-03 |',
+    'miltonmrtnz@yahoo.com:oropel38 | Expiry = 2022-01-02 |',
+    'red19fan@gmail.com:Firdies1 | Expiry = 2022-01-02 |',
+    'mercury1331@hotmail.com:IloveGuns133 | Expiry = 2022-01-01 |',
+    'mr.madscientist314@hotmail.com:3.141592654 | Expiry = 2021-12-31 |',
+    'lilim20006@hotmail.com:Jolili876 | Expiry = 2021-12-30 |',
     ];
 
     function rand(range_from,range_to){
