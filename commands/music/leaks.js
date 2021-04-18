@@ -1,9 +1,9 @@
 const Discord = require('discord.js')
 module.exports = {
-  name: "pause",
-  aliases: ["pa"],
-  usage: "pause",
-  description: "pause the song!",
+  name: "leaks",
+  aliases: ["leaks"],
+  usage: "leaks",
+  description: "account nordvpn",
   run: async (client, message, args) => {
 
     var konta = ['bialy','zielony','niebieski','czerwony','pomaranczowy'];
