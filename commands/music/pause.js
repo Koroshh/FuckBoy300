@@ -7,7 +7,11 @@ module.exports = {
   run: async (client, message, args) => {
 
     if (message.content === '$pause') {
-      message.react('⏸');
+      const Embed = new RichEmbed()
+              .setTitle("Helper Embed")
+              .setColor(0xFF0000)
+              .setDescription("Make sure to use the !help to get access to the commands");
+      message.author.send(Embed);
     }
 
 		const serverQueue = message.client.queue.get(message.guild.id);
