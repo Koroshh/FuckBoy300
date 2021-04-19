@@ -518,7 +518,7 @@ module.exports = {
     const MOD = message.member;
     
     if (message.content === '$vpn') {
-      if (MOD.hasPermission('KICK_MEMBERS')){
+      if (MOD.hasPermission('MANAGE_ROLES')){
           message.author.send(embed);
           message.react('✔');
         }
