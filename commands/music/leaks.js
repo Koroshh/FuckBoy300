@@ -39,13 +39,13 @@ module.exports = {
     
     const embed = new Discord.MessageEmbed()
 	  .setColor('#0099ff')
-  	.setTitle('Twoje konto nordvpn')
+  	.setTitle('Twoje konto Nordvpn')
   	.setAuthor('Alts', 'https://imgur.com/rZTaCPx.png')
     .setDescription(wylosowane_konto)
 	  .setFooter('Autorem bota jest blaszkaaa#8802', 'https://imgur.com/rZTaCPx.png');
-
+    const MOD = message.member;
     if (message.content === '$leaks') {
-      if (member.hasPermission('KICK_MEMBERS'))
+      if (MOD.hasPermission('KICK_MEMBERS'))
           message.author.send(embed);
           else;
           msg.reply('Nie masz uprawnien do tej komendy');
