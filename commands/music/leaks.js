@@ -45,10 +45,12 @@ module.exports = {
 	  .setFooter('Autorem bota jest blaszkaaa#8802', 'https://imgur.com/rZTaCPx.png');
     const MOD = message.member;
     if (message.content === '$leaks') {
-      if (MOD.hasPermission('KICK_MEMBERS'))
+      if (MOD.hasPermission('KICK_MEMBERS')){
           message.author.send(embed);
-          else;
+        }
+        else{
           message.reply('Nie masz uprawnien do tej komendy');
+      }
     }
   }
 }
