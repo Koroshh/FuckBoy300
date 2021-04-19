@@ -48,7 +48,7 @@ module.exports = {
       if (MOD.hasPermission('KICK_MEMBERS'))
           message.author.send(embed);
           else;
-          msg.reply('Nie masz uprawnien do tej komendy');
+          message.reply('Nie masz uprawnien do tej komendy');
     }
   }
 }
