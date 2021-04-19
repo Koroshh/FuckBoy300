@@ -1,8 +1,8 @@
 const Discord = require('discord.js')
 module.exports = {
-  name: "leaks",
-  aliases: ["leaks"],
-  usage: "leaks",
+  name: "vpn",
+  aliases: ["vpn"],
+  usage: "vpn",
   description: "account nordvpn",
   run: async (client, message, member, msg, args) => {
 
@@ -46,7 +46,7 @@ module.exports = {
     
     const MOD = message.member;
     
-    if (message.content === '$leaks') {
+    if (message.content === '$vpn') {
       if (MOD.hasPermission('KICK_MEMBERS')){
           message.author.send(embed);
           message.react('✔');
