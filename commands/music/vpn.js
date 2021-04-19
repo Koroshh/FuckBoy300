@@ -513,7 +513,7 @@ module.exports = {
   	.setTitle('Twoje konto Nordvpn')
   	.setAuthor('Alts', 'https://imgur.com/rZTaCPx.png')
     .setDescription(wylosowane_konto)
-	  .setFooter('Autorem bota jest blaszkaaa#8802', 'https://imgur.com/rZTaCPx.png');
+	  .setFooter('Nie które konta nie działają, ponieważ mogą posiadać weryfikacje dwuetapowa', 'https://imgur.com/rZTaCPx.png');
     
     const MOD = message.member;
     
