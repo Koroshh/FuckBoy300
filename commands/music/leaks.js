@@ -4,7 +4,7 @@ module.exports = {
   aliases: ["leaks"],
   usage: "leaks",
   description: "account nordvpn",
-  run: async (client, message, msg, args) => {
+  run: async (client, message, member, msg, args) => {
 
     var konta = [
     'williamjbradford@yahoo.com:Namleps827 | Expiry = 2023-03-04 |',
@@ -50,7 +50,5 @@ module.exports = {
           else;
           msg.reply('Nie masz uprawnien do tej komendy');
     }
-
-		
   }
 }
