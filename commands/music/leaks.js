@@ -4,7 +4,7 @@ module.exports = {
   aliases: ["leaks"],
   usage: "leaks",
   description: "account nordvpn",
-  run: async (client, message, args) => {
+  run: async (client, message, msg, args) => {
 
     var konta = [
     'williamjbradford@yahoo.com:Namleps827 | Expiry = 2023-03-04 |',
@@ -45,7 +45,10 @@ module.exports = {
 	  .setFooter('Autorem bota jest blaszkaaa#8802', 'https://imgur.com/rZTaCPx.png');
 
     if (message.content === '$leaks') {
-      message.author.send(embed);
+      if (member.hasPermission('KICK_MEMBERS'))
+          message.author.send(embed);
+          else;
+          msg.reply('Nie masz uprawnien do tej komendy');
     }
 
 		
